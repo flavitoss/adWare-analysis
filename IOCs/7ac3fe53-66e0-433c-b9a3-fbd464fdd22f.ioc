@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="7ac3fe53-66e0-433c-b9a3-fbd464fdd22f" last-modified="2023-10-12T00:23:13" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>short file</short_description>
+  <description>the other file analysis
+</description>
+  <authored_by>flavio</authored_by>
+  <authored_date>2023-10-11T20:28:24</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="7931bab6-b41c-41c3-8d62-369e26073586">
+      <IndicatorItem id="59c40e05-fce5-4646-8181-cdabe9d855a8" condition="contains">
+        <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+        <Content type="string">#H3XGROUPWASHERE</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e9f64325-a524-41f0-be0e-d6cc49d46820" condition="is">
+        <Context document="FileItem" search="FileItem/Sha1sum" type="mir" />
+        <Content type="string">F8AC123E604137654759F2FBC4C5957D5881D3D1</Content>
+      </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>

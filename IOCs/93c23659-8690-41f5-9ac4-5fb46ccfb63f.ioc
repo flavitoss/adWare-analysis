@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="93c23659-8690-41f5-9ac4-5fb46ccfb63f" last-modified="2023-10-12T00:22:26" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>long file IOC</short_description>
+  <description>A malware analisis from Blue team course (long file)</description>
+  <authored_by>Flavio</authored_by>
+  <authored_date>2023-10-11T19:55:34</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="7df0cfa6-2bce-419d-8f21-87bd27da5886">
+      <IndicatorItem id="2aec8969-38c8-455c-a382-ba33f0d1575d" condition="is">
+        <Context document="FileItem" search="FileItem/Sha256sum" type="mir" />
+        <Content type="string">37EA273266AA2D28430194FCA27849170D609D338ABC9C6C43C4E6BE1BCF51F9</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bf577907-1e00-4e7f-84d5-1811aad313e1" condition="is">
+        <Context document="FileItem" search="FileItem/StreamList/Stream/Sha1sum" type="mir" />
+        <Content type="string">6D15E7F0BB54DF5B27A093F20186773AB0AF7707</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d1967e75-a6df-4fc2-b7f7-e04f39113e2a" condition="contains">
+        <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+        <Content type="string">390808010001Z0U1</Content>
+      </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>
